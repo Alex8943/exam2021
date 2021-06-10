@@ -11,7 +11,7 @@ public class Sogne {
     private long sognekode;
     private String navn;
 
-    @OneToOne
+    @ManyToOne
     private Kommune kommunekode;
     private long smittetryk;
     private Date nedlukningsdato;

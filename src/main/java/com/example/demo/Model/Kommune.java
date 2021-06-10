@@ -9,8 +9,8 @@ public class Kommune {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Sogne sogne;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Sogne> sogne;
     private long kommunekode;
     private String navn;
 

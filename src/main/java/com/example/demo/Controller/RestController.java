@@ -13,8 +13,11 @@ public class RestController {
     KommuneService kommuneService;
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model) {
         model.addAttribute("kommuner", kommuneService.findAllKommune());
         return "index";
     }
+
+
+
 }

@@ -17,11 +17,11 @@ public class KommuneService {
     KommuneRepository kommuneRepository;
 
     /*
-      void create();
-    long findKommuneById(long id);
-    List<Kommune> findAllKommune();
-    void update(long id);
-    void delete (long id);
+    Object create();
+    Set<Object> findKommuneById(long id);
+    List<Object> findAllKommune();
+    void update(Object o);
+    void deleteById (long id);
      */
 
     Kommune create(Kommune kommune){
@@ -39,7 +39,7 @@ public class KommuneService {
     public Kommune findKommuneById(long id){
         Optional<Kommune> optionalKommune = kommuneRepository.findById(id);
         if (!optionalKommune.isPresent()){
-            throw new RuntimeException("Kommune : " + id + " Not found");
+            throw new RuntimeException("Kommune : " + id + " Kommune blev ikke fundet");
         } else {
             return optionalKommune.get();
         }

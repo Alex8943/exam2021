@@ -12,3 +12,6 @@ CREATE TABLE sogne(
     smittetryk long not null,
     nedlukningsdato date not null
 );
+
+INSERT INTO kommune (id, kommunekode, navn)
+VALUES ('1', '1', 'Frederiksberg');

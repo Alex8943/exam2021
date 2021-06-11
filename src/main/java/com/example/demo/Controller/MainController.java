@@ -10,4 +10,14 @@ public class MainController {
     public String index(){
         return "index";
     }
+
+    @GetMapping("/create")
+    public String create(){
+        return "create";
+    }
+
+    @GetMapping("/update")
+    public String update(){
+        return "update";
+    }
 }

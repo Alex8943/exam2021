@@ -59,20 +59,13 @@ public class SogneService {
     }
 
     public ResponseEntity<String> delete (long id){
-        //sogneRepository.deleteById(id);
-
-
         Optional<Sogne> optionalParish = sogneRepository.findById(id);
         if (optionalParish.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{ 'msg' : 'parish_id " + id + " not found'}");
+            //Så findes id ikke
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{ 'msg' : id " + id + " not found'}");
         }
-
-        Sogne sogne = optionalParish.get();
-
-
-        sogneRepository.save(sogne);
+        //Ellers sletter jeg den her
         sogneRepository.deleteById(id);
-
         return ResponseEntity.status(HttpStatus.OK).body("{ 'msg' : 'deleted'}");
     }
 

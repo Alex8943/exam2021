@@ -1,5 +1,7 @@
 package com.example.demo.Model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -14,6 +16,8 @@ public class Sogne {
     @ManyToOne
     private Kommune kommunekode;
     private long smittetryk;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date nedlukningsdato;
 
 

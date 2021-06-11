@@ -38,9 +38,10 @@ public class restCon {
         return sogneService.update(sogneDTO);
     }
 
-    @DeleteMapping("/deleteSogne")
-    public void delete(@RequestBody long id){
-        sogneService.delete(id);
+    @DeleteMapping("/deleteSogne/{id}")
+    public ResponseEntity<String> delete(@PathVariable("id") long id){
+      return sogneService.delete(id);
+
     }
 
 

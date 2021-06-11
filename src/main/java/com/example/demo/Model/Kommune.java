@@ -7,30 +7,19 @@ import java.util.List;
 public class Kommune {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
+    private long kommunekode;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Sogne> sogne;
-    private long kommunekode;
     private String navn;
 
 
-    public Kommune(long id, long kommunekode, String navn) {
-        this.id = id;
+    public Kommune(long kommunekode, String navn) {
         this.kommunekode = kommunekode;
         this.navn = navn;
     }
 
     public Kommune(){
 
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public long getKommunekode() {

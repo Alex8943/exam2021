@@ -16,12 +16,25 @@ public class Sogne {
     private long smittetryk;
     private Date nedlukningsdato;
 
-    public Sogne(long sognekode, String navn, Kommune kommunekode, long smittetryk, Date nedlukningsdato) {
+
+    public Sogne(long id, long sognekode, String navn, Kommune kommunekode, long smittetryk, Date nedlukningsdato) {
+        this.id = id;
         this.sognekode = sognekode;
         this.navn = navn;
         this.kommunekode = kommunekode;
         this.smittetryk = smittetryk;
         this.nedlukningsdato = nedlukningsdato;
+    }
+
+    public Sogne(long sognekode, String navn){
+        this.sognekode = sognekode;
+        this.navn = navn;
+    }
+
+    public Sogne(SogneDTO sogneDTO, Kommune kommunekode){
+        this.navn = sogneDTO.getNavn();
+        this.sognekode = sogneDTO.getSognekode();
+        this.kommunekode = kommunekode;
     }
 
     public Sogne(){

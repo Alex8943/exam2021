@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <h1> Oversigt over covid-19 smittetryk</h1>
+    </div>
+
+    <dic class="row">
+        <div class table>
+            <thead class="thead-beight">
+            <tr>
+                <th>Id</th>
+                <th>sognekode</th>
+                <th>navn</th>
+                <th>kommunekode</th>
+                <th>smittetryk</th>
+                <th>nedlukningsdato</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="k : ${sogne}">
+                <td th:text="${k.id}"></td>
+                <td th:text="${k.sognekode}"></td>
+                <td th:text="${k.navn}"></td>
+                <td th:text="${k.kommunekode}"></td>
+                <td th:text="${k.smittetryk}"></td>
+                <td th:text="${k.nedlukningsdato}"></td>
+
+                <td>
+                    <div class="btn.group">
+                        <a th:href="@{'/update/' + ${k.id}}" class="btn btn-warning">Update</a>
+                        <a th:href="@{'/delete/' + ${k.id}}" class="btn btn-danger">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+      </div>
+    </dic>
+</div>
+<div class="row">
+    <a href="create" class="btn btn-primary" role="button">Lav Sogn Data</a>
+</div>
+
+
+</body>
+</html>

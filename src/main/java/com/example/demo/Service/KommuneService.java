@@ -24,11 +24,11 @@ public class KommuneService {
     void deleteById (long id);
      */
 
-    Kommune create(Kommune kommune){
+    public Kommune create(Kommune kommune){
         return kommuneRepository.save(kommune);
     }
 
-    public Set<Kommune> findAllKommune(){
+    public Set<Kommune> findAll(){
         Set<Kommune> kommuneSet = new HashSet<>();
         for(Kommune kommune : kommuneRepository.findAll()){
             kommuneSet.add(kommune);
@@ -36,7 +36,7 @@ public class KommuneService {
         return kommuneSet;
     }
 
-    public Kommune findKommuneById(long id){
+    public Kommune findById(long id){
         Optional<Kommune> optionalKommune = kommuneRepository.findById(id);
         if (!optionalKommune.isPresent()){
             throw new RuntimeException("Kommune : " + id + " Kommune blev ikke fundet");
@@ -49,11 +49,15 @@ public class KommuneService {
         return kommuneRepository.save(kommune);
     }
 
+    public void delete(Kommune kommune){
+        kommuneRepository.delete(kommune);
+    }
+
     public void deleteById (long id){
         kommuneRepository.deleteById(id);
     }
 
-    public boolean checkIfKommuneExist(long id) throws NotFoundException {
+    public boolean checkIfExist(long id) throws NotFoundException {
         boolean checkIfExist = kommuneRepository.existsById(id);
         boolean status = false;
         if (!checkIfExist){

@@ -11,13 +11,18 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/create")
+    @GetMapping("/updateSogne")
     public String create(){
-        return "create";
+        return "updateSogne";
     }
 
-    @GetMapping("/update")
-    public String update(){
-        return "update";
+    @GetMapping("/infektionstal")
+    public String infektion(){
+        return "infektionstal";
+    }
+
+    @GetMapping("/sogne")
+    public String sogne(){
+        return "sogne";
     }
 }

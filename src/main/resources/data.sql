@@ -10,7 +10,7 @@ CREATE TABLE sogne(
     navn varchar(250) not null,
     kommune varchar(250) not null,
     smittetryk long not null,
-    nedlukningsdato date not null
+    nedlukningsdato varchar(10) not null
 );
 
 INSERT INTO kommune (id, kommunekode, navn)

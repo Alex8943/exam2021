@@ -4,18 +4,37 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"  crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
 
+<div id="h2container">
+    <h1>H2 console</h1>
+    <p>Klik her for at komme til h2-consolen</p>
+    <a class="btn btn-info" href="h2-console">H2-console</a>
+</div>
+
+<header id="myTopnav">
+    <div>
+        <div class="topnav">
+            <a href="/">Forside</a>
+            <a href="/sogne">Sogner</a>
+            <a href="/infektionstal">Infektions tal</a>
+        </div>
+        <div id="border_header_dark">
+            <hr>
+        </div>
+    </div>
+
+</header>
+<!--
 <div align="center" class="container my-2">
     <h1> Kommune Liste </h1>
 
-    <a th:href="@{/showNewKommuneForm}" class="btn btn-primary btn-sm mb-3"> Tilføj Kommune </a>
+    <a th:href="@{/kommuneService.create}" class="btn btn-primary btn-sm mb-3"> Tilføj Kommune </a>
 
     <table border="1" class="table table-striped table-responsive-md">
 
@@ -33,11 +52,10 @@
             <td th:text="${kommune.kommunenavn}"></td>
             <td th:text="${kommune.kommunekode}"></td>
 
-</div>
-
-    <dic class="row">
-        <div class table>
-            <thead class="thead-beight">
+        <td>
+        <table>
+            <a th:href="@{/showNewSognForm}" class="btn btn-primary btn-sm mb-3"> Tilføj Sogn </a>
+            <a th:href="@{/deleteKommune/{id}(id=${kommune.id})}" class="btn btn-danger btn-sm mb-3 float-right" >Slet Kommune</a>
             <tr>
                 <th>Id</th>
                 <th>sognekode</th>
@@ -46,7 +64,7 @@
                 <th>smittetryk</th>
                 <th>nedlukningsdato</th>
             </tr>
-            </thead>
+
             <tbody>
             <tr th:each="k : ${sogne}">
                 <td th:text="${k.id}"></td>
@@ -57,20 +75,19 @@
                 <td th:text="${k.nedlukningsdato}"></td>
 
                 <td>
-                    <div class="btn.group">
-                        <a th:href="@{'/update/' + ${k.id}}" class="btn btn-warning">Update</a>
-                        <a th:href="@{'/delete/' + ${k.id}}" class="btn btn-danger">Delete</a>
-                    </div>
+                    <a th:href="@{/showFormForUpdate/{id}(id=${sogn.id})}" class="btn btn-primary">Opdater</a>
+                    <a th:href="@{/deleteSogn/{id}(id=${sogn.id})}" class="btn btn-danger">Slet</a>
                 </td>
             </tr>
-        </tbody>
-      </div>
-    </dic>
-</div>
-<div class="row">
-    <a href="create" class="btn btn-primary" role="button">Lav Sogn Data</a>
+            </tbody>
+        </table>
+      </td>
+    </tr>
+</tbody>
+    </table>
 </div>
 
+-->
 
 </body>
 </html>

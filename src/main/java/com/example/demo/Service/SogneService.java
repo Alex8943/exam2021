@@ -21,9 +21,6 @@ public class SogneService {
     @Autowired
     KommuneRepository kommuneRepository;
 
-    public Sogne create(Sogne sogne){
-        return sogneRepository.save(sogne);
-    }
 
     public Sogne create(SogneDTO sogneDTO){
         Optional<Kommune> kommune = kommuneRepository.findById(sogneDTO.getKommunekode());
@@ -59,8 +56,8 @@ public class SogneService {
     }
 
     public ResponseEntity<String> delete (long id){
-        Optional<Sogne> optionalParish = sogneRepository.findById(id);
-        if (optionalParish.isEmpty()){
+        Optional<Sogne> optionalSogne = sogneRepository.findById(id);
+        if (optionalSogne.isEmpty()){
             //Så findes id ikke
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{ 'msg' : id " + id + " not found'}");
         }

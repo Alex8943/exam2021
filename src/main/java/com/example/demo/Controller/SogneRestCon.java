@@ -15,13 +15,14 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController // sender objecter i bestemt form
-public class restCon {
+public class SogneRestCon {
 
     @Autowired
     SogneService sogneService;
 
+
     @GetMapping("/findAllSogne")
-    public List<Sogne> index() {
+    public List<Sogne> findAll() {
       List<Sogne> sogneList = new ArrayList<>();
       sogneService.findAll().forEach(s->sogneList.add(s));
       return sogneList;

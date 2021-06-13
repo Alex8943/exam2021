@@ -21,12 +21,13 @@ public class SogneService {
     @Autowired
     KommuneRepository kommuneRepository;
 
-
+    //Create a Sogne object
     public Sogne create(SogneDTO sogneDTO){
         Optional<Kommune> kommune = kommuneRepository.findById(sogneDTO.getKommunekode());
         return sogneRepository.save(new Sogne(sogneDTO, kommune.get()));
     }
 
+    //Find all Sogne object
     public Set<Sogne> findAll(){
         Set<Sogne> sogneSet = new HashSet<>();
         for(Sogne sogne: sogneRepository.findAll()){
@@ -35,6 +36,7 @@ public class SogneService {
         return sogneSet;
     }
 
+    //Find one Sagne by id
     public Sogne findById(long id){
         Optional<Sogne> sogneOptional = sogneRepository.findById(id);
         if (!sogneOptional.isPresent()){
@@ -44,17 +46,20 @@ public class SogneService {
         }
     }
 
-    public Sogne update(SogneDTO sogneDTO) throws Exception {
+    //Update a Sogne
+    public Sogne update(Sogne sogne,long id) throws Exception {
         Iterator<Sogne> iterator = sogneRepository.findAll().iterator();
         while (iterator.hasNext()) {
-            Sogne sogne = iterator.next();
-            if(sogneDTO.getNavn() == sogne.getNavn()){
+            Sogne sogneIter = iterator.next();
+            if(sogne.getSognekode() == sogneIter.getId()){
+                ResponseEntity.status(HttpStatus.OK).body("{ 'msg' : navn " + sogneIter.getNavn() + "found'} ");
                 return sogneRepository.save(sogne);
             }
         }
         throw new Exception("Kan ikke updatere");
     }
 
+    //Delete a player
     public ResponseEntity<String> delete (long id){
         Optional<Sogne> optionalSogne = sogneRepository.findById(id);
         if (optionalSogne.isEmpty()){

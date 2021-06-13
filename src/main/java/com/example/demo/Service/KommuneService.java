@@ -50,7 +50,7 @@ public class KommuneService {
         Iterator<Kommune> iterator = kommuneRepository.findAll().iterator();
         while (iterator.hasNext()) {
             Kommune kommune = iterator.next();
-            if(sogneDTO.getNavn() == kommune.getNavn()){
+            if(sogneDTO.getKommunekode() == kommune.getKommunekode()){
                 return kommuneRepository.save(kommune);
             }
         }

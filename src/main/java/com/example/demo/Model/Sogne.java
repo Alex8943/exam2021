@@ -36,7 +36,6 @@ public class Sogne {
     }
 
     public Sogne(SogneDTO sogneDTO, Kommune kommunekode){
-        this.navn = sogneDTO.getNavn();
         this.sognekode = sogneDTO.getSognekode();
         this.kommunekode = kommunekode;
     }

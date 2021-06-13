@@ -10,19 +10,4 @@ public class MainController {
     public String index(){
         return "index";
     }
-
-    @GetMapping("/updateSogne")
-    public String create(){
-        return "updateSogne";
-    }
-
-    @GetMapping("/infektionstal")
-    public String infektion(){
-        return "infektionstal";
-    }
-
-    @GetMapping("/sogne")
-    public String sogne(){
-        return "sogne";
-    }
 }
